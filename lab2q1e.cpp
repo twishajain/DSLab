@@ -1,5 +1,6 @@
+
 #include <iostream>
-#include <string.h>
+#include<string.h>
 using namespace std;
 int main()
 {
@@ -8,8 +9,11 @@ int main()
     cin.getline(str,30);
     cout<<"Enter A Substring: ";
     cin.getline(subs,20);
-    int lens = strlen(str);
-    int sub = strlen(subs); 
+    int l,lens,sub;
+    for(l=0;str[l]!='\0';l++)
+        lens=l;
+    for(l=0;subs[l]!='\0';l++)
+        sub=l;
     int matchstart;
     int matchend;
     int i;
