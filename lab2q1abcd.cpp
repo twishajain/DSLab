@@ -65,7 +65,7 @@ if (flag==0)
     cout<<0;
 }
 //Substring addition
-cout<<"\n"<<"at what position due you want to add substring to string?";
+cout<<"\n"<<"at what position do you want to add substring to string?";
 int n;
 cin>>n;
 char str[50];
