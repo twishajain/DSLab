@@ -11,9 +11,9 @@ int main()
     cin.getline(subs,20);
     int l,lens,sub;
     for(l=0;str[l]!='\0';l++)
-        lens=l;
+        lens=l+1;
     for(l=0;subs[l]!='\0';l++)
-        sub=l;
+        sub=l+1;
     int matchstart;
     int matchend;
     int i;
