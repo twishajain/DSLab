@@ -39,6 +39,7 @@ class stack
 };
 int main()
 {
+    cout<<"Enter word";
     char str[100];
     cin.getline(str,100);
     int flag=1;
