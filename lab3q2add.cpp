@@ -51,7 +51,7 @@ int main()
     {
         switch(c[i])
         {
-            case '(': s1.push('C');
+            case '(': s1.push('(');
                         break;
             case '{':  s1.push('{');
                         break;   
@@ -59,33 +59,24 @@ int main()
                         break;  
             case ']': if(s1.pop()!='[')   
                         {
-                            
                             flag=1;
-                         
-                            
                         }
                         break;
             case '}': if(s1.pop()!='{')   
                         {
                             flag=1;
-                       
-                            
                         }
                         break;
             case ')': if(s1.pop()!='(')   
                         {
                             flag=1;
-                         
-                        
                         }
                         break;
         }
         i++;
     }
-    if(flag==1)
+    if(flag==0)
         cout<<"Matching parenthesis";
     else
         cout<<"Not matching";
 }
-
-
