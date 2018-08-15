@@ -18,6 +18,7 @@ public:
         {
             top++;
             s[top]=a;
+            
         }
     }
     int pop()
@@ -36,11 +37,10 @@ public:
 };
 int main()
 {
-    int n,b,rem;
+    int n,b,rem,g=0;
     cout<<"Enter number";
     cin>>n;
     int res=0;
-    int mul=1;
     cout<<"Enter base:";
     cin>>b;
     stacks s1;
@@ -49,9 +49,11 @@ int main()
         rem=n%b;
         s1.push(rem);
         n=n/b;
+        g++;
     }
-    char f[20];
-    while (s1.pop()!=-1)
-        f.append(s1.pop());
-    cout<<f;
+    while (g>0)
+       {g--;
+        res=(res*10)+(s1.pop());
+       }
+    cout<<res;
 }
