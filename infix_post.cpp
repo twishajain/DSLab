@@ -107,7 +107,8 @@ void postfix(char *infix)
       int main()
       {
           cout<<"Enter string";
-          char exp[] = "a+b*(c-d)";
+          char exp[50];
+          cin.getline(exp,50);
           postfix(exp);
       }
 
