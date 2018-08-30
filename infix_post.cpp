@@ -1,13 +1,14 @@
 // Example program
 #include <iostream>
 #include <string>
+#include<stdlib.h>
 using namespace std;
-class Stacks{
+class stackss{
     char a[50];
     int top;
     int maxsize;
     public:
-    Stacks()
+    stackss()
     {
         top=-1;
         maxsize=20;
@@ -49,11 +50,8 @@ class Stacks{
     }
     void display()
     {
-        while (top!=-1)
-        {
-            cout<<pop();
-            top--;
-        }
+        for (int i=top;i>=0;i--)
+        cout<<a[i];
     }
 };
 int icp[]={20,19,12,12,13,13,13,0};
@@ -73,13 +71,15 @@ precedence gettoken(char c)
         default:return operand;
     }
 }
-void postfix(char infix[])
+void postfix(char *infix)
 {
+    
     precedence temp;
     int i=0;
-    Stacks s;
+    stackss s;
     while (infix[i]!='\0')
     {
+       
         temp=gettoken(infix[i]);
         if (temp==operand)
         cout<<infix[i];
@@ -107,8 +107,7 @@ void postfix(char infix[])
       int main()
       {
           cout<<"Enter string";
-          char str[100];
-          cin>>str;
-          postfix(str);
+          char exp[] = "a+b*(c-d)";
+          postfix(exp);
       }
 
