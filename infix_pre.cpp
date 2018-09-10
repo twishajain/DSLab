@@ -1,4 +1,3 @@
-// Example program
 #include <iostream>
 #include <string.h>
 #include<stdlib.h>
@@ -19,14 +18,14 @@ class stackss{
         {
             return true;
         }
-        else 
+        else
         return false;
     }
     bool isfull()
     {
         if (top==maxsize-1)
         return true;
-        else 
+        else
         return false;
     }
     char pop()
@@ -36,7 +35,7 @@ class stackss{
         e= a[top];
         top--;
         return e;}
-        
+
     }
     char push(char g)
     {
@@ -73,14 +72,14 @@ precedence gettoken(char c)
 }
 void postfix(char *infix)
 {
-    
+
     precedence temp;
     int i=0;
     stackss s;
     stackss l;
     while (infix[i]!='\0')
     {
-       
+
         temp=gettoken(infix[i]);
         if (temp==operand)
         l.push(infix[i]);
@@ -112,18 +111,6 @@ void postfix(char *infix)
           cout<<"Enter string";
           char exp[50];
           cin.getline(exp,50);
-          char arr[50];
-          int j=strlen(exp)-1;
-          for (int i=0;i<strlen(exp);i++)
-          {
-              if (exp[i]=='(')
-              exp[i]=')';
-              else if (exp[i]==')')
-              exp[i]='(';
-              arr[j]=exp[i];
-              j--;
-          }
-              
-          postfix(arr);
-      }
 
+          postfix(strrev(exp));
+      }
