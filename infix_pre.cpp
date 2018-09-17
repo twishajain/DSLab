@@ -73,8 +73,18 @@ precedence gettoken(char c)
 void postfix(char *infix)
 {
 
+
     precedence temp;
     int i=0;
+    while (infix[i]!='\0')
+    {
+        if (infix[i]=='(')
+                infix[i]=')';
+        else if (infix[i]==')')
+            infix[i]='(';
+        i++;
+    }
+    i=0;
     stackss s;
     stackss l;
     while (infix[i]!='\0')
@@ -95,7 +105,7 @@ void postfix(char *infix)
                 s.push(infix[i]);
             else
                 {
-                    while(s.isempty()==0 && icp[temp]<=isp[gettoken(s.topele())])
+                    while(s.isempty()==0 && icp[temp]<isp[gettoken(s.topele())])
                     l.push(s.pop());
                     s.push(infix[i]);
                 }
@@ -111,6 +121,5 @@ void postfix(char *infix)
           cout<<"Enter string";
           char exp[50];
           cin.getline(exp,50);
-
           postfix(strrev(exp));
       }
