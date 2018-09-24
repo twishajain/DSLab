@@ -52,6 +52,11 @@ void SLL::ins_before()
     {
         cout<<"list empty";
     }
+    else if (h==first->data)
+    {
+        temp->link=first;
+        first=temp;
+    }
     else
     {
         SLL *curr,*prev;
