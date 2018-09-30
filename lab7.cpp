@@ -12,6 +12,8 @@ public:
     void delSpecific();
     void reversing();
     void sortt();
+    void delalternate();
+    void inssorted();
 };
 SLL *first=NULL, *last=NULL;
 void SLL::ins_end()
@@ -30,6 +32,32 @@ void SLL::ins_end()
         for (curr=first;curr->link!=NULL;curr=curr->link);
         curr->link=temp;
     }
+}
+void SLL::delalternate()
+{
+    SLL *p,*n;
+
+    if (first==NULL)
+        cout<<"list empty";
+    else if (first->link==NULL)
+        {cout<<"only one element list remains same";
+        }
+    else
+        {
+            p=first;
+            n=p->link;
+            while (p!=NULL && n!=NULL)
+            {
+                p->link=n->link;
+                delete n;
+                p=p->link;
+                if (p!=NULL)
+                    n=p->link;
+            }
+
+        }
+
+
 }
 void SLL::display()
 {
@@ -137,6 +165,41 @@ void SLL::reversing()
     }
     first=curr;
 }
+void SLL::inssorted()
+{
+    SLL *prev,*curr;
+    SLL *temp=new SLL;
+    cout<<"Enter no to be inserted";
+    cin>>temp->data;
+    temp->link=NULL;
+    if (first==NULL)
+    {first=temp; return;}
+    else if (temp->data<first->data)
+    {
+        temp->link=first;
+        first=temp;
+        return;
+    }
+    else
+    {
+        prev=first;curr=prev->link;
+        while (curr)
+        {
+            if (temp->data>prev->data && temp->data<curr->data)
+            {
+                temp->link=curr;
+                prev->link=temp;
+                return;
+            }
+            prev=curr->link;
+            curr=prev->link;
+        }
+        prev->link=temp;
+        return;
+    }
+}
+
+
 void SLL::sortt()
 {
     SLL *i,*j;int temp;
@@ -158,7 +221,7 @@ int main()
     int option;
     char ch;
     do{
-    cout<<"1.Insert_end 2.Insert_before 3.Insert_after 4.Reverse 5.Delete 6.Sort 7.Display";
+    cout<<"1.Insert_end 2.Insert_before 3.Insert_after 4.Reverse 5.Delete 6.Sort 7.Display 8.DelAlternate 9.Inssorted";
     cin>>option;
     switch(option)
     {
@@ -169,9 +232,12 @@ int main()
         case 5:k.delSpecific();break;
         case 6:k.sortt();break;
         case 7:k.display();break;
+        case 8:k.delalternate();break;
+        case 9:k.inssorted();break;
     }
     cout<<"Do you want to continue?";
     cin>>ch;
 
 }while (ch=='y'|| ch=='Y');
 }
+
